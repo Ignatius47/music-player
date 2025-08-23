@@ -1,4 +1,3 @@
-// src/components/SearchBar.jsx
 import { useState } from "react";
 
 export default function SearchBar({ onSearch }) {
@@ -12,7 +11,10 @@ export default function SearchBar({ onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 p-4 bg-gray-900">
+    <form
+      onSubmit={handleSubmit}
+      className="flex gap-2 p-4 bg-gray-900 rounded-lg"
+    >
       <input
         type="text"
         placeholder="Search for songs, artists..."
@@ -20,7 +22,12 @@ export default function SearchBar({ onSearch }) {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <button className="bg-green-500 px-4 py-2 rounded-md">Search</button>
+      <button
+        type="submit"
+        className="bg-green-500 px-4 py-2 rounded-md hover:bg-green-600"
+      >
+        Search
+      </button>
     </form>
   );
 }
