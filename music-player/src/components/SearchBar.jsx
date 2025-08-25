@@ -1,33 +1,14 @@
-import { useState } from "react";
-
-export default function SearchBar({ onSearch }) {
-  const [query, setQuery] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (query.trim() !== "") {
-      onSearch(query);
-    }
-  };
-
+function SearchBar() {
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex gap-2 p-4 bg-gray-900 rounded-lg"
-    >
+    <div className="flex items-center bg-neutral-900 rounded-xl p-3 mb-4">
+      <span className="text-xl mr-2">🔍</span>
       <input
         type="text"
-        placeholder="Search for songs, artists..."
-        className="flex-1 p-2 rounded-md text-black"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search for Songs"
+        className="bg-transparent outline-none w-full text-gray-300"
       />
-      <button
-        type="submit"
-        className="bg-green-500 px-4 py-2 rounded-md hover:bg-green-600"
-      >
-        Search
-      </button>
-    </form>
+    </div>
   );
 }
+
+export default SearchBar;

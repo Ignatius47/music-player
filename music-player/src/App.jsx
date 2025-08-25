@@ -1,35 +1,24 @@
-import { useState } from "react";
 import SearchBar from "./components/SearchBar";
-import TrackCard from "./components/TrackCard";
-import MusicPlayer from "./components/MusicPlayer";
+import SongList from "./components/SongList";
+import PlayerBar from "./components/PlayerBar";
+import NowPlaying from "./components/NowPlaying";
 
-export default function App() {
-  const [tracks, setTracks] = useState([]);
-  const [currentTrack, setCurrentTrack] = useState(null);
-
-  const fetchTracks = async (query) => {
-    try {
-      const res = await fetch(
-        `https://cors-anywhere.herokuapp.com/https://api.deezer.com/search?q=${query}`
-      );
-      const data = await res.json();
-      setTracks(data.data);
-    } catch (err) {
-      console.error("Error fetching tracks:", err);
-    }
-  };
-
+function App() {
   return (
-    <div className="min-h-screen bg-gray-800 text-white">
-      <h1 className="text-2xl font-bold p-4">🎵 Music Player</h1>
-      <SearchBar onSearch={fetchTracks} />
-      <div className="p-4 grid gap-2">
-        {tracks.length === 0 && <p>No songs yet. Try searching.</p>}
-        {tracks.map((track) => (
-          <TrackCard key={track.id} track={track} onPlay={setCurrentTrack} />
-        ))}
+    <div className="h-screen bg-neutral-900 text-white flex p-4 space-x-4">
+      {/* Left Side - Search + Songs */}
+      <div className="flex flex-col flex-1 bg-neutral-800 rounded-2xl p-4">
+        <SearchBar />
+        <SongList />
+        <PlayerBar />
       </div>
-      <MusicPlayer track={currentTrack} />
+
+      {/* Right Side - Now Playing */}
+      <div className="w-1/2 bg-neutral-800 rounded-2xl p-6">
+        <NowPlaying />
+      </div>
     </div>
   );
 }
+
+export default App;
