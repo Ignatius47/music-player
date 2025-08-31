@@ -1,17 +1,13 @@
-export default function TrackCard({ track, onPlay }) {
+export default function TrackCard({ track, onClick }) {
   return (
     <div
-      className="bg-gray-700 p-3 rounded-lg flex items-center gap-4 hover:bg-gray-600 cursor-pointer"
-      onClick={() => onPlay(track)}
+      className="flex items-center space-x-3 cursor-pointer hover:bg-gray-700 p-2 rounded-xl"
+      onClick={onClick}
     >
-      <img
-        src={track.album.cover_small}
-        alt={track.title}
-        className="w-12 h-12 rounded-md"
-      />
+      <img src={track.cover} alt={track.title} className="w-14 h-14 rounded-lg object-cover" />
       <div>
-        <p className="font-semibold">{track.title}</p>
-        <p className="text-sm text-gray-300">{track.artist.name}</p>
+        <p className="font-semibold text-sm">{track.title}</p>
+        <p className="text-gray-400 text-xs">{track.artist}</p>
       </div>
     </div>
   );
