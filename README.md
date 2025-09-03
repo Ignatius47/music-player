@@ -1,29 +1,37 @@
-# 🎵 Music Player Capstone Project
+# Music App
 
-This is my frontend capstone project: a **Music Player** built with React and Tailwind CSS.  
-It uses the **Deezer API** to search for and play music tracks.
+Simple full-stack music player that searches Deezer and plays 30s previews.
 
----
+Structure
+```
+deezer-music-app/
+├── client/    # React + Vite + Tailwind frontend
+├── server/    # Express proxy server
+└── README.md
+```
 
-## Features
-- Search for tracks by artist, song title, or album.
-- Display results with album cover, title, artist, and album name.
-- Play 30-second previews using Deezer’s preview links.
-- Responsive UI with Tailwind CSS.
-- Basic playback controls (play, pause).
+## Requirements
+- Node.js 18+ and npm
 
----
+## Run (development)
+1. Open two terminals.
 
-## Tech Stack
-- React (with Vite)
-- Tailwind CSS
-- Deezer API
-- HTML5 `<audio>` element
+2. Start the server:
+```bash
+cd server
+npm install
+npm run dev
+```
+Server will run on http://localhost:4000
 
----
+3. Start the client:
+```bash
+cd client
+npm install
+npm run dev
+```
+Client will run on http://localhost:5173 (Vite). Vite is configured to proxy `/api` to the server, so search requests go to `http://localhost:4000/api/search?q=...`.
 
-## Setup Instructions
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/Ignatius47/music-player.git
-   cd music-player
+## Notes
+- Deezer preview URLs are 30s samples (`preview` field).
+- This is a simple demo. For production you should secure the server and add caching or rate-limit.
