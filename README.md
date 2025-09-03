@@ -32,6 +32,5 @@ npm run dev
 ```
 Client will run on http://localhost:5173 (Vite). Vite is configured to proxy `/api` to the server, so search requests go to `http://localhost:4000/api/search?q=...`.
 
-## Notes
+## Note
 - Deezer preview URLs are 30s samples (`preview` field).
-- This is a simple demo. For production you should secure the server and add caching or rate-limit.
