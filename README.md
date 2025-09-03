@@ -4,7 +4,7 @@ Simple full-stack music player that searches Deezer and plays 30s previews.
 
 Structure
 ```
-deezer-music-app/
+music-app/
 ├── client/    # React + Vite + Tailwind frontend
 ├── server/    # Express proxy server
 └── README.md
