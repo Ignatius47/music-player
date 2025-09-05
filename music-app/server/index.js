@@ -37,5 +37,5 @@ app.get('/api/track/:id', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Deezer proxy server running on http://localhost:${PORT}`);
+  console.log(`Deezer proxy server running on https://music-player-ypel.onrender.com:${PORT}`);
 });
