@@ -1,4 +1,4 @@
 [build]
-  base = "client"
+  base = "music-app/client"
   command = "npm run build"
   publish = "dist"
